@@ -13,29 +13,29 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    
+
     setStatus('submitting');
 
     try {
       const response = await fetch("https://formsubmit.co/ajax/corewebinnovations26@gmail.com", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
         body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            message: formData.message,
-            _subject: "New Contact Message from CoreWeb Innovations Website",
-            _template: "table" // Optional: makes the email look like a neat table
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: "New Contact Message from CoreWeb Innovations Website",
+          _template: "table" // Optional: makes the email look like a neat table
         })
       });
 
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
-        
+
         // Reset success message after 4 seconds
         setTimeout(() => {
           setStatus('idle');
@@ -54,7 +54,7 @@ const Contact = () => {
   return (
     <section id="contact" className="contact-section">
       <div className="contact-grid">
-        <motion.div 
+        <motion.div
           className="contact-info"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ const Contact = () => {
         >
           <h2>Let's build the <span className="text-gradient">future</span> together.</h2>
           <p>Ready to start your next big project? Get in touch with us.</p>
-          
+
           <div className="contact-methods">
             <div className="method">
               <Mail className="text-cyan" />
@@ -71,7 +71,7 @@ const Contact = () => {
             </div>
             <div className="method">
               <Phone className="text-purple" />
-              <span>+91 9894932660</span>
+              <span>+91 9445972660</span>
             </div>
             <div className="method">
               <MapPin className="text-blue" />
@@ -80,7 +80,7 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="contact-form-wrapper glass-panel"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -98,9 +98,9 @@ const Contact = () => {
               <textarea name="message" placeholder="Message" rows="5" value={formData.message} onChange={handleChange} required disabled={status === 'submitting'}></textarea>
             </div>
             <button type="submit" className={`btn-glow submit-btn w-full ${status === 'success' ? 'success' : ''}`} disabled={status === 'submitting' || status === 'success'}>
-              {status === 'idle' && <><span style={{marginRight: '8px'}}>Send Message</span> <Send size={18} /></>}
-              {status === 'submitting' && <><span style={{marginRight: '8px'}}>Sending...</span> <Loader2 size={18} className="animate-spin" /></>}
-              {status === 'success' && <><span style={{marginRight: '8px'}}>Message Sent!</span> <CheckCircle2 size={18} className="text-cyan" /></>}
+              {status === 'idle' && <><span style={{ marginRight: '8px' }}>Send Message</span> <Send size={18} /></>}
+              {status === 'submitting' && <><span style={{ marginRight: '8px' }}>Sending...</span> <Loader2 size={18} className="animate-spin" /></>}
+              {status === 'success' && <><span style={{ marginRight: '8px' }}>Message Sent!</span> <CheckCircle2 size={18} className="text-cyan" /></>}
               <div className="btn-glow-effect"></div>
             </button>
           </form>
