@@ -57,9 +57,9 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <Counter target={150} duration={2000} text="Projects Delivered" />
-            <Counter target={85} duration={2000} text="Happy Clients" />
-            <Counter target={10} duration={2000} text="Years Experience" />
+            <Counter target={10} duration={2000} text="Projects Delivered" />
+            <Counter target={7} duration={2000} text="Happy Clients" />
+            <Counter target={1} duration={2000} text="Years Experience" />
           </motion.div>
        </div>
     </section>

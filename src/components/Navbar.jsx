@@ -24,8 +24,9 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="nav-container">
-        <a href="#" className="logo">
-          CoreWeb <span className="text-gradient">Innovations</span>
+        <a href="#" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <img src="/logo.png" alt="CoreWeb Logo" style={{ height: '32px', width: '32px', objectFit: 'contain' }} />
+          <span>CoreWeb <span className="text-gradient">Innovations</span></span>
         </a>
 
         <div className="desktop-links">

@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { motion, useMotionValue } from 'framer-motion';
 
 const CustomCursor = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
 
   useEffect(() => {
     const updateMousePosition = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
     };
 
-    window.addEventListener('mousemove', updateMousePosition);
+    window.addEventListener('mousemove', updateMousePosition, { passive: true });
     return () => window.removeEventListener('mousemove', updateMousePosition);
-  }, []);
+  }, [cursorX, cursorY]);
 
   return (
     <>
@@ -26,12 +28,11 @@ const CustomCursor = () => {
           pointerEvents: 'none',
           zIndex: 9999,
           filter: 'drop-shadow(0 0 5px rgba(0, 240, 255, 0.8))',
+          x: cursorX,
+          y: cursorY,
+          translateX: '-2px',
+          translateY: '-2px',
         }}
-        animate={{
-          x: mousePosition.x - 2,
-          y: mousePosition.y - 2,
-        }}
-        transition={{ type: "tween", ease: "backOut", duration: 0 }}
       >
         <path
           d="M 2 2 L 18 10 L 11 13 L 8 20 L 2 2 Z"
@@ -43,11 +44,12 @@ const CustomCursor = () => {
       </motion.svg>
       <motion.div
         className="cursor-glow"
-        animate={{
-          x: mousePosition.x - 200,
-          y: mousePosition.y - 200,
+        style={{
+          x: cursorX,
+          y: cursorY,
+          translateX: '-200px',
+          translateY: '-200px',
         }}
-        transition={{ type: "tween", ease: "linear", duration: 0 }}
       />
     </>
   );
