@@ -33,7 +33,7 @@ const Portfolio = () => {
         {projects.map((project, idx) => (
           <motion.div 
             key={project.id}
-            className={`portfolio-card hover-glow-${project.color}`}
+            className="portfolio-card"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -47,7 +47,7 @@ const Portfolio = () => {
                 </a>
               </div>
             </div>
-            <div className="portfolio-info glass-panel">
+            <div className="portfolio-info">
               <span className="portfolio-category">{project.category}</span>
               <h3 className="portfolio-title">{project.title}</h3>
             </div>

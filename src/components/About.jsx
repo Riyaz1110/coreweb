@@ -34,7 +34,7 @@ const Counter = ({ target, duration, text }) => {
 const About = () => {
   return (
     <section id="about" className="about-section">
-       <div className="about-content glass-panel">
+       <div className="about-content">
           <motion.div 
             className="about-text"
             initial={{ opacity: 0, x: -50 }}

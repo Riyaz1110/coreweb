@@ -33,13 +33,13 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 }
+    transition: { staggerChildren: 0.15 }
   }
 };
 
 const cardVariants = {
-  hidden: { y: 50, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.6 } }
+  hidden: { y: 30, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
 };
 
 const Services = () => {
@@ -66,11 +66,11 @@ const Services = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-50px" }}
       >
         {servicesSet.map((srv, idx) => (
-          <motion.div key={idx} variants={cardVariants} className={`service-card glass-panel hover-glow-${srv.color}`}>
-            <div className={`icon-wrapper shadow-${srv.color}`}>
+          <motion.div key={idx} variants={cardVariants} className="service-card">
+            <div className="icon-wrapper">
               {srv.icon}
             </div>
             <h3>{srv.title}</h3>

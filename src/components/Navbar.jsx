@@ -8,7 +8,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -18,12 +18,12 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`navbar ${isScrolled ? 'scrolled glass-panel' : ''}`}
+      className={`navbar ${isScrolled ? 'scrolled' : ''}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="nav-container">
+      <div className="nav-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
         <a href="#" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <img src="/logo.png" alt="CoreWeb Logo" style={{ height: '32px', width: '32px', objectFit: 'contain' }} />
           <span>CoreWeb <span className="text-gradient">Innovations</span></span>
@@ -44,14 +44,14 @@ const Navbar = () => {
           className="mobile-menu-btn"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X size={24} color="white" /> : <Menu size={24} color="white" />}
+          {mobileMenuOpen ? <X size={24} color="#0f172a" /> : <Menu size={24} color="#0f172a" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <motion.div 
-          className="mobile-menu glass-panel"
+          className="mobile-menu"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -65,6 +65,9 @@ const Navbar = () => {
               {link}
             </a>
           ))}
+          <a href="#contact" className="btn-primary" style={{ textAlign: 'center', marginTop: '1rem' }} onClick={() => setMobileMenuOpen(false)}>
+            Get Started
+          </a>
         </motion.div>
       )}
     </motion.nav>

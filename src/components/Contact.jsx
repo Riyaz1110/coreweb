@@ -81,7 +81,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="contact-form-wrapper glass-panel"
+          className="contact-form-wrapper"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -97,11 +97,11 @@ const Contact = () => {
             <div className="input-group">
               <textarea name="message" placeholder="Message" rows="5" value={formData.message} onChange={handleChange} required disabled={status === 'submitting'}></textarea>
             </div>
-            <button type="submit" className={`btn-glow submit-btn w-full ${status === 'success' ? 'success' : ''}`} disabled={status === 'submitting' || status === 'success'}>
+            <button type="submit" className={`btn-primary submit-btn w-full ${status === 'success' ? 'success' : ''}`} disabled={status === 'submitting' || status === 'success'}>
               {status === 'idle' && <><span style={{ marginRight: '8px' }}>Send Message</span> <Send size={18} /></>}
               {status === 'submitting' && <><span style={{ marginRight: '8px' }}>Sending...</span> <Loader2 size={18} className="animate-spin" /></>}
               {status === 'success' && <><span style={{ marginRight: '8px' }}>Message Sent!</span> <CheckCircle2 size={18} className="text-cyan" /></>}
-              <div className="btn-glow-effect"></div>
+
             </button>
           </form>
         </motion.div>

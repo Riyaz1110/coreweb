@@ -30,7 +30,7 @@ const Testimonials = () => {
       </div>
 
       <div className="testimonial-container">
-        <button className="nav-btn prev glass-panel" onClick={prev}><ChevronLeft /></button>
+        <button className="nav-btn prev" onClick={prev}><ChevronLeft /></button>
         
         <div className="testimonial-slider">
           <AnimatePresence mode="wait">
@@ -40,7 +40,7 @@ const Testimonials = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="testimonial-card glass-panel"
+              className="testimonial-card"
             >
               <Quote className="quote-icon" size={40} />
               <p className="testimonial-text">"{testimonials[current].text}"</p>
@@ -54,7 +54,7 @@ const Testimonials = () => {
           </AnimatePresence>
         </div>
 
-        <button className="nav-btn next glass-panel" onClick={next}><ChevronRight /></button>
+        <button className="nav-btn next" onClick={next}><ChevronRight /></button>
       </div>
     </section>
   );
