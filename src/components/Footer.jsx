@@ -19,6 +19,7 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} CoreWeb Innovations. All rights reserved.</p>
+        <a href="https://drive.google.com/file/d/1SicsMWkUMj6m2F7beyd8n9N-1uM4jdTb/view?usp=sharing">Link</a>
       </div>
     </footer>
   );
