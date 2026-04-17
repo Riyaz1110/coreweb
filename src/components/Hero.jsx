@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -51,9 +52,11 @@ const Hero = () => {
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
       >
-        <div className="mouse">
-          <div className="wheel"></div>
-        </div>
+        <ChevronDown 
+          size={40} 
+          color="var(--accent-primary)" 
+          style={{ filter: 'drop-shadow(0 0 5px rgba(57, 255, 20, 0.5))' }} 
+        />
       </motion.div>
     </section>
   );
