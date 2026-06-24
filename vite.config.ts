@@ -11,5 +11,8 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // Force Nitro to build even outside Lovable context (required for Vercel deployment).
+    // Uses the Vercel preset so Nitro outputs to .output/ which Vercel picks up automatically.
+    nitro: { preset: "vercel" },
   },
 });
